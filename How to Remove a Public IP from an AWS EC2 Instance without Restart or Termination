@@ -1,0 +1,23 @@
+Be sure to follow these steps in this exact order!
+
+1. Go to your running EC2 instance with the public IP you want to remove. Note what region and availability zone are associated with that instance.
+
+In this example, we are using an instance in the Canadian central region in the 1b availability zone
+2. On the left-hand panel, scroll and go into “Network Interfaces” under the “Network and Security” Dropdown. Once there, click “Create Network Interface.” In the description, give it a memorable name (we used “TEST 1b” in this example). For the subnet, pick a matching one for the instance from Step 1. Click “Create” to finish.
+
+
+ca-central-1b in this example
+3. Next, go it elastic IPs (also under the “Network and Security” Dropdown). After you create a new elastic IP, associate it with the EC2 instance.
+
+
+4. Next, go back to your running EC2. Right-click it and select “Attach Network Interface” under the “Networking” option
+
+
+5. From here, attach the network interface made previously.
+
+
+6. Next, disassociate the elastic IP from the instance. If done properly, the public IP should disappear.
+
+7. Finally, detach the network interface, this will remove the second private IP that was added.
+
+8. Make sure to disassociate the elastic IP first before detaching the extra network interface!
